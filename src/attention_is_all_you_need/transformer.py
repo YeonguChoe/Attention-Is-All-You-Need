@@ -1,2 +1,4 @@
-def add_one(number):
-    return number + 1
+# Translator
+
+class Transformer:
+    pass
