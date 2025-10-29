@@ -1,29 +1,11 @@
+from tokenizers import Tokenizer, models, pre_tokenizers, trainers
 import torch
 
-default_batch = [
-    "Hello, world!",
-    "From Canada"
-]
-
-def word2vec(word: str):
-    return torch.nn.Embedding(word)
-
-def input_embedding(batch_tensor: torch.tensor = torch.tensor(default_batch)):
-    """
-    Input embedding
-
-    Args:
-        batch_tensor (torch.tensor): tensor of sentence list.
-
-    Returns:
-        torch.tensor of (batch, sequence, vector) : each vector contains properties of a word within a sentence.
-    """
-
-    result = []
-    for sentence in batch_tensor:
-        vector_list = []
-        for word in sentence:
-            vector_list.append(word2vec(word))
-        result.append(vector_list)
-
-    return torch.tensor(result)
+def tokenize(s:str):
+    word_level = models.WordLevel(unk_token="[UNK]")
+    tokenizer = Tokenizer(model=word_level)
+    trainer = trainers.WordLevelTrainer(special_tokens=["[UNK]", "[CLS]", "[SEP]", "[PAD]", "[MASK]"])
+    tokenizer.pre_tokenizer = pre_tokenizers.Whitespace()
+    tokenizer.train(files=["wiki.train.raw"], trainer=trainer)
+    tokenizer.save("vocab.json")
+    return tokenizer.encode(s).ids
