@@ -1,2 +1,4 @@
-# Positional Embedding: Attach position information in a sentence.
+# Positional Encoding: Attach position information in a sentence.
 
+def positional_encoding():
+    pass
