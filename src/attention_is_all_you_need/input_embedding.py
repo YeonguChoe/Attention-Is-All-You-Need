@@ -17,6 +17,5 @@ tokens = tokenizer.tokenize("My name is Yeongu Choe")
 y = torch.tensor(tokens)
 vocab_size = tokenizer.get_vocab_size()
 
-print(input_embedding(y,vocab_size).shape)
-
-y = tokenizer.load()
+z = input_embedding(y,vocab_size).shape
+print(z)
