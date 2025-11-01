@@ -28,4 +28,4 @@ z = input_embedding(y,vocab_size)
 
 w = positional_encoding(z)
 
-print(z+w)
+print((z+w).shape)
