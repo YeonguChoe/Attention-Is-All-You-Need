@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling >= 1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "attention_is_all_you_need"
+version = "0.0.1"
+authors = [{ name = "Yeongu Choe", email = "yeongu.choe@icloud.com" }]
+description = "Attention Is All You Need"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "AGPL-3.0"
+license-files = ["LICENSE"]
+
+[project.urls]
+Homepage = "https://github.com/YeonguChoe/Attention-Is-All-You-Need"
+Issues = "https://github.com/YeonguChoe/Attention-Is-All-You-Need/issues"

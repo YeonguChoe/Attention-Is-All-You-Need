@@ -1,0 +1,4 @@
+# Translator
+
+class Transformer:
+    pass
